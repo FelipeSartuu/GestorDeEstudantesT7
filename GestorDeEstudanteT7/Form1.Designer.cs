@@ -109,6 +109,7 @@
             this.buttonOk.TabIndex = 6;
             this.buttonOk.Text = "Logar";
             this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancelar
             // 
