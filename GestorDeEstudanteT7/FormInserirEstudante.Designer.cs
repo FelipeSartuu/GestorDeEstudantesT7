@@ -231,6 +231,7 @@
             this.buttonInserir.TabIndex = 19;
             this.buttonInserir.Text = "Inserir";
             this.buttonInserir.UseVisualStyleBackColor = false;
+            this.buttonInserir.Click += new System.EventHandler(this.buttonInserir_Click);
             // 
             // pictureBoxFoto
             // 
