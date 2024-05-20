@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace GestorDeEstudanteT7
 {
-    public partial class Login_Form : Form
+    public partial class FormLogin : Form
     {
-        public Login_Form()
+        public FormLogin()
         {
             InitializeComponent();
         }
@@ -74,10 +74,10 @@ namespace GestorDeEstudanteT7
 
             if (tabelaDeDados.Rows.Count > 0)
             {
-                MessageBox.Show("SIM");
+                this.DialogResult = DialogResult.OK;
             }
             else {
-                MessageBox.Show("NAO");
+                MessageBox.Show("Usuário ou senha inválidos", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

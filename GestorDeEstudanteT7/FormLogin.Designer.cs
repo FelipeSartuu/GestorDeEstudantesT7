@@ -1,6 +1,6 @@
 ﻿namespace GestorDeEstudanteT7
 {
-    partial class Login_Form
+    partial class FormLogin
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -122,7 +122,7 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Login_Form
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,7 +135,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxUsuario);
-            this.Name = "Login_Form";
+            this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Form_Load);
