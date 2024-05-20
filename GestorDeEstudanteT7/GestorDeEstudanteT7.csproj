@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="estudante.cs" />
     <Compile Include="FormInserirEstudante.cs">
       <SubType>Form</SubType>
     </Compile>

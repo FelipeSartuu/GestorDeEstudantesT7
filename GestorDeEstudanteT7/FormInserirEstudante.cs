@@ -54,7 +54,18 @@ namespace GestorDeEstudanteT7
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
 
+        private void buttonFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog procurarFoto = new OpenFileDialog();
+            procurarFoto.Filter = "Selecione a foto (*.jpg;*png;*.jpeg;*gif)|*.jpg;*.png;*jpeg;*.gif";
+
+            if (procurarFoto.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxFoto.Image = Image.FromFile(procurarFoto.FileName);
+            }
         }
     }
 }
