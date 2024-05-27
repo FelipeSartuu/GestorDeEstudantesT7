@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace GestorDeEstudanteT7
 
         public bool inserirEstudante(string nome, string sobrenome, DateTime nascimento, string telefone, string genero, string endereco, MemoryStream foto)
         {
-            MySqlCommand comando = new MySqlCommand("INSERT INTO `estudantes`(`id`, `nome`, `sobrenome`, `nascimento`, `genero`, `telefone`, `endereco`, `foto`) VALUES (@nome,@sobrenome,@nascimento,@genero,@telefone,@endereco, @foto)", 
+            MySqlCommand comando = new MySqlCommand("INSERT INTO `estudantes`(`nome`, `sobrenome`, `nascimento`, `genero`,`telefone`, `endereco`, `foto`) VALUES (@nome,@sobrenome,@nascimento,@genero,@telefone,@endereco,@foto)", 
                 meuBancoDeDados.getConexao);
 
             comando.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
@@ -25,7 +26,7 @@ namespace GestorDeEstudanteT7
             comando.Parameters.Add("@genero", MySqlDbType.VarChar).Value = genero;
             comando.Parameters.Add("telefone", MySqlDbType.VarChar).Value = telefone;
             comando.Parameters.Add("@endereco", MySqlDbType.Text).Value = endereco;
-            comando.Parameters.Add("@", MySqlDbType.LongBlob).Value = foto;
+            comando.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto.ToArray();
 
             meuBancoDeDados.abrirConexao();
 
@@ -39,6 +40,18 @@ namespace GestorDeEstudanteT7
                 meuBancoDeDados.fecharConexao();
                 return false;
             }
+        }
+
+        public DataTable getEstudantes(MySqlConnection comando)
+        {
+            comando.Connection = meuBancoDeDados.getConexao;
+
+            MySqlDataAdapter Adaptador = new MySqlDataAdapter(comando);
+            DataTable tabelaDeDados = new DataTable();
+            Adaptador.Fill(tabelaDeDados);
+
+            return tabelaDeDados;
+
         }
     }
 }

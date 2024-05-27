@@ -72,17 +72,16 @@ namespace GestorDeEstudanteT7
         bool Verificar()
         {
             if ((textBoxNome.Text.Trim() == "") ||
-                (textBoxSobrenome.Text.Trim() == "") ||
-                (textBoxTelefone.Text.Trim() == "") ||
-                (textBoxEndereco.Text.Trim() == "") ||
-                (pictureBoxFoto.Image == null)
-                )
+               (textBoxSobrenome.Text.Trim() == "") ||
+               (textBoxTelefone.Text.Trim() == "") ||
+               (textBoxEndereco.Text.Trim() == "") ||
+               (pictureBoxFoto.Image == null))
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -112,6 +111,33 @@ namespace GestorDeEstudanteT7
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+
+            else if (Verificar())
+            {
+                pictureBoxFoto.Image.Save(foto, pictureBoxFoto.Image.RawFormat);
+
+                if (estudante.inserirEstudante(nome, sobrenome, nascimento, telefone, endereco, 
+                    genero, foto))
+                {
+                    MessageBox.Show("Novo aluno cadastrado!", "Sucesso!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Aluno não cadastrado!", "Erro!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Há campos não preenchidos", "Erro!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void dateTimePickerNascimento_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

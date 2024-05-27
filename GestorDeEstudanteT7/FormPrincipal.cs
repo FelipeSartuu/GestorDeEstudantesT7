@@ -32,5 +32,10 @@ namespace GestorDeEstudanteT7
         {
 
         }
+
+        private void listarAlunosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
