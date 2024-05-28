@@ -42,7 +42,7 @@ namespace GestorDeEstudanteT7
             }
         }
 
-        public DataTable getEstudantes(MySqlConnection comando)
+        /*public DataTable getEstudantes(MySqlConnection comando)
         {
             comando.Connection = meuBancoDeDados.getConexao;
 
@@ -52,6 +52,6 @@ namespace GestorDeEstudanteT7
 
             return tabelaDeDados;
 
-        }
+        }*/
     }
 }
