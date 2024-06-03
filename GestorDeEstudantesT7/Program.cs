@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestorDeEstudanteT7
+namespace GestorDeEstudantesT7
 {
     internal static class Program
     {
@@ -16,12 +16,11 @@ namespace GestorDeEstudanteT7
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormLogin());
+            //Application.Run(new Login_Form());
 
-            FormLogin formlogin = new FormLogin();
+            FormLogin formLogin = new FormLogin();
 
-
-            if (formlogin.ShowDialog() == DialogResult.OK)
+            if (formLogin.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new FormPrincipal());
             }
@@ -29,8 +28,6 @@ namespace GestorDeEstudanteT7
             {
                 Application.Exit();
             }
-
-
         }
     }
 }
