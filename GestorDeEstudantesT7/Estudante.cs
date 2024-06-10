@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,27 @@ namespace GestorDeEstudantesT7
             }
         }
 
+        public bool apagarEstudante(int id)
+        {
+            MySqlCommand comando = new MySqlCommand("DELETE FROM `estudantes` WHERE `id`=@id");
+            comando.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+
+            meuBancoDeDados.abrirConexao();
+
+            if (comando.ExecuteNonQuery() == 1)
+            {
+                meuBancoDeDados.fecharConexao();
+                return true;
+            }
+            else
+            {
+                meuBancoDeDados.fecharConexao();
+                return false;
+            }
+        }
+
+
+
         // RETORNA a tabela dos estudantes que estão no banco de dados.
         public DataTable getEstudantes(MySqlCommand comando)
         {
@@ -53,5 +75,7 @@ namespace GestorDeEstudantesT7
 
             return tabelaDeDados;
         }
+
+        
     }
 }
