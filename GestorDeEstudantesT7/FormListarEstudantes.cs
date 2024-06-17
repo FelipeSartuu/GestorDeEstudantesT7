@@ -63,6 +63,12 @@ namespace GestorDeEstudantesT7
                 formAtualizarApagarEstudante.radioButtonMasculino.Checked = true;
             }
 
+            formAtualizarApagarEstudante.textBoxTelefone.Text =
+                dataGridViewListaDeAlunos.CurrentRow.Cells[5].Value.ToString();
+
+            formAtualizarApagarEstudante.textBoxEndereco.Text =
+                dataGridViewListaDeAlunos.CurrentRow.Cells[6].Value.ToString();
+
             byte[] foto;
             foto = (byte[])dataGridViewListaDeAlunos.CurrentRow.Cells[7].Value;
             MemoryStream fotoDoAluno = new MemoryStream(foto);
