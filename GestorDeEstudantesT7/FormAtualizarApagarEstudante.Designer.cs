@@ -293,6 +293,7 @@
             this.Controls.Add(this.textBoxTelefone);
             this.Name = "FormAtualizarApagarEstudante";
             this.Text = "FormAtualizarApagarEstudante";
+            this.Load += new System.EventHandler(this.FormAtualizarApagarEstudante_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).EndInit();

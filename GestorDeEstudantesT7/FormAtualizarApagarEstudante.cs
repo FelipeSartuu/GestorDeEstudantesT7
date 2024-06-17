@@ -43,5 +43,10 @@ namespace GestorDeEstudantesT7
         {
 
         }
+
+        private void FormAtualizarApagarEstudante_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

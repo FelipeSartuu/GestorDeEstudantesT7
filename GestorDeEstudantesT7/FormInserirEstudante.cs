@@ -105,5 +105,10 @@ namespace GestorDeEstudantesT7
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void FormInserirEstudante_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
