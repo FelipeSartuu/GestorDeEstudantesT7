@@ -13,6 +13,8 @@ namespace GestorDeEstudantesT7
 {
     public partial class FormAtualizarApagarEstudante : Form
     {
+
+        Estudante estudante = new Estudante();
         bool Verificar()
         {
             if ((textBoxNome.Text.Trim() == "") ||
@@ -28,6 +30,8 @@ namespace GestorDeEstudantesT7
                 return true;
             }
         }
+
+        
 
         public FormAtualizarApagarEstudante()
         {
@@ -68,7 +72,6 @@ namespace GestorDeEstudantesT7
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            Estudante estudante = new Estudante();
 
             int id = Convert.ToInt32(textBoxId.Text);
 
@@ -118,6 +121,29 @@ namespace GestorDeEstudantesT7
             {
                 MessageBox.Show("Existem campos não preenchidos!", "Campos não preenchidos",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonApagar_Click(object sender, EventArgs e)
+        {
+            int idDoAluno = Convert.ToInt32(textBoxId.Text);
+
+            if (MessageBox.Show("Tem certeza que deesja apagar o aluno?",
+                "Apagar Estudante", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (estudante.apagarEstudante(idDoAluno))
+                {
+                    MessageBox.Show("Aluno apagado!",
+                        "Apagar Estudante", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    textBoxId.Text = "";
+                    textBoxNome.Text = "";
+                    textBoxSobrenome.Text = "";
+                    textBoxTelefone.Text = "";
+                    textBoxEndereco.Text = "";
+                }
             }
         }
     }

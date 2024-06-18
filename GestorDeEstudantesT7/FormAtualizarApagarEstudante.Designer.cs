@@ -225,6 +225,7 @@
             this.buttonApagar.TabIndex = 31;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // buttonSalvar
             // 
