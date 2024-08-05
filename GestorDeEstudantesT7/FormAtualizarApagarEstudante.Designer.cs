@@ -50,7 +50,7 @@
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEnviarFoto = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).BeginInit();
             this.SuspendLayout();
@@ -260,13 +260,13 @@
             this.label8.Text = "ID";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // textBoxId
+            // textBoxID
             // 
-            this.textBoxId.Location = new System.Drawing.Point(133, 22);
-            this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(158, 20);
-            this.textBoxId.TabIndex = 34;
-            this.textBoxId.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxID.Location = new System.Drawing.Point(133, 22);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(158, 20);
+            this.textBoxID.TabIndex = 34;
+            this.textBoxID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FormAtualizarApagarEstudante
             // 
@@ -274,7 +274,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 609);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBoxId);
+            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.buttonEnviarFoto);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonApagar);
@@ -317,7 +317,7 @@
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonEnviarFoto;
         private System.Windows.Forms.Label label8;
-        internal System.Windows.Forms.TextBox textBoxId;
+        internal System.Windows.Forms.TextBox textBoxID;
         internal System.Windows.Forms.GroupBox groupBox1;
         internal System.Windows.Forms.RadioButton radioButtonFeminino;
         internal System.Windows.Forms.RadioButton radioButtonMasculino;
