@@ -51,32 +51,37 @@ namespace GestorDeEstudantesT7
 
         private void label2_MouseEnter(object sender, EventArgs e)
         {
-            panelTotalDeEstudantes.BackColor = Color.White;
-            labelTotalDeEstudantes.ForeColor = corPainelTotal;
+            panelTotalDeEstudantes.BackColor = Color.LightGray;
+            labelTotalDeEstudantes.ForeColor = Color.Black;
         }
 
         private void label2_MouseLeave(object sender, EventArgs e)
         {
-            panelTotalDeEstudantes.BackColor = corPainelTotal
-            labelTotalDeEstudantes.ForeColor = Color.White;
+            panelTotalDeEstudantes.BackColor = corPainelTotal;
+            labelTotalDeEstudantes.ForeColor = Color.Black;
         }
 
         private void label1_MouseEnter(object sender, EventArgs e)
         {
-
+            panelMeninos.BackColor = Color.LightBlue;
         }
 
         private void label1_MouseLeave(object sender, EventArgs e)
         {
-
+            panelMeninos.BackColor = corPainelMeninos;
         }
 
         private void label3_MouseEnter(object sender, EventArgs e)
         {
-
+            panelMeninas.BackColor = Color.Violet;
         }
 
         private void label3_MouseLeave(object sender, EventArgs e)
+        {
+            panelMeninas.BackColor = corPainelMeninas;
+        }
+
+        private void labelMeninos_Click(object sender, EventArgs e)
         {
 
         }
