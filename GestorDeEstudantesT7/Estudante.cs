@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GestorDeEstudantesT7
 {
@@ -106,6 +107,34 @@ namespace GestorDeEstudantesT7
             return tabelaDeDados;
         }
 
-        
+        //Função que faz a contagem
+
+        public string fazerContagem(string pesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand(pesquisa, meuBancoDeDados.getConexao);
+
+            meuBancoDeDados.abrirConexao();
+            string contagem = comando.ExecuteScalar().ToString();
+            meuBancoDeDados.fecharConexao();
+
+            return contagem;
+        }
+
+        //pega o total de estudantes.
+        public string totalDeEstudantes()
+        {
+            return fazerContagem("SELECT COUNT(*) FROM `estudantes`");
+        }
+
+        public string totalDeEstudantesMeninos()
+        {
+            return fazerContagem("SELECT COUNT(*) FROM `estudantes` WHERE `genero` = 'Masculino'");
+        }
+
+        public string totalDeEstudantesMeninas()
+        {
+            return fazerContagem("SELECT COUNT(*) FROM `estudantes` WHERE `genero` = 'Feminino'");
+        }
+
     }
 }

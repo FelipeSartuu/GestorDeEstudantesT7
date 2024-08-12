@@ -138,7 +138,6 @@ namespace GestorDeEstudantesT7
             {
                 MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             
         }
 

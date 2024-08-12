@@ -107,7 +107,7 @@
             // 
             this.labelMeninos.AutoSize = true;
             this.labelMeninos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMeninos.Location = new System.Drawing.Point(74, 65);
+            this.labelMeninos.Location = new System.Drawing.Point(81, 65);
             this.labelMeninos.Name = "labelMeninos";
             this.labelMeninos.Size = new System.Drawing.Size(185, 31);
             this.labelMeninos.TabIndex = 6;
@@ -125,7 +125,8 @@
             this.Controls.Add(this.panelTotalDeEstudantes);
             this.Controls.Add(this.panelMeninas);
             this.Name = "FormEstatisticas";
-            this.Text = "FormEstatisticas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SGA - Estatísticas";
             this.Load += new System.EventHandler(this.FormEstatisticas_Load);
             this.panelMeninas.ResumeLayout(false);
             this.panelMeninas.PerformLayout();
