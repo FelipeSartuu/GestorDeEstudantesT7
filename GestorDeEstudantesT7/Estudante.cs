@@ -1,8 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -44,6 +44,18 @@ namespace GestorDeEstudantesT7
             }
         }
 
+        // RETORNA a tabela dos estudantes que estão no banco de dados.
+        public DataTable getEstudantes(MySqlCommand comando)
+        {
+            comando.Connection = meuBancoDeDados.getConexao;
+
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
+            DataTable tabelaDeDados = new DataTable();
+            adaptador.Fill(tabelaDeDados);
+
+            return tabelaDeDados;
+        }
+
         public bool atualizarEstudantes(int id, string nome, string sobrenome, DateTime nascimento,
             string telefone, string genero, string endereco, MemoryStream foto)
         {
@@ -74,9 +86,18 @@ namespace GestorDeEstudantesT7
             }
         }
 
+        // Apaga um estudante com base em seu ID.
         public bool apagarEstudante(int id)
         {
+            try
+            {
+
+            } catch
+            {
+
+            }
             MySqlCommand comando = new MySqlCommand("DELETE FROM `estudantes` WHERE `id`=@id");
+        
             comando.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 
             meuBancoDeDados.abrirConexao();
@@ -91,36 +112,25 @@ namespace GestorDeEstudantesT7
                 meuBancoDeDados.fecharConexao();
                 return false;
             }
+
         }
 
-
-
-        // RETORNA a tabela dos estudantes que estão no banco de dados.
-        public DataTable getEstudantes(MySqlCommand comando)
-        {
-            comando.Connection = meuBancoDeDados.getConexao;
-
-            MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
-            DataTable tabelaDeDados = new DataTable();
-            adaptador.Fill(tabelaDeDados);
-
-            return tabelaDeDados;
-        }
-
-        //Função que faz a contagem
-
+        // Função que faz a contagem de alunos.
         public string fazerContagem(string pesquisa)
         {
-            MySqlCommand comando = new MySqlCommand(pesquisa, meuBancoDeDados.getConexao);
+            MySqlCommand comando = 
+                new MySqlCommand(pesquisa, 
+                meuBancoDeDados.getConexao);
 
             meuBancoDeDados.abrirConexao();
+            // a pesquisa
             string contagem = comando.ExecuteScalar().ToString();
             meuBancoDeDados.fecharConexao();
-
+           
             return contagem;
         }
 
-        //pega o total de estudantes.
+        // pega o total de estudantes.
         public string totalDeEstudantes()
         {
             return fazerContagem("SELECT COUNT(*) FROM `estudantes`");
@@ -128,12 +138,12 @@ namespace GestorDeEstudantesT7
 
         public string totalDeEstudantesMeninos()
         {
-            return fazerContagem("SELECT COUNT(*) FROM `estudantes` WHERE `genero` = 'Masculino'");
+            return fazerContagem("SELECT COUNT(*) FROM `estudantes` WHERE `genero`='Masculino'");
         }
 
         public string totalDeEstudantesMeninas()
         {
-            return fazerContagem("SELECT COUNT(*) FROM `estudantes` WHERE `genero` = 'Feminino'");
+            return fazerContagem("SELECT COUNT(*) FROM `estudantes` WHERE `genero`='Feminino'");
         }
 
     }

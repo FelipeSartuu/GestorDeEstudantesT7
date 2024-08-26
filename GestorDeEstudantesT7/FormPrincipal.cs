@@ -43,20 +43,16 @@ namespace GestorDeEstudantesT7
         private void editarRemoverToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAtualizarApagarEstudante atualizarApagarEstudante = new FormAtualizarApagarEstudante();
-            atualizarApagarEstudante.Show();
+            atualizarApagarEstudante.Show(this);
         }
 
         private void gerenciarAlunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormGerenciarAlunos formGerenciarAlunos = new FormGerenciarAlunos();
+            formGerenciarAlunos.Show(this);
         }
 
         private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
         {
 
         }

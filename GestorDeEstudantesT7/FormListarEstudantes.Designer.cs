@@ -41,6 +41,7 @@
             this.dataGridViewListaDeAlunos.Name = "dataGridViewListaDeAlunos";
             this.dataGridViewListaDeAlunos.Size = new System.Drawing.Size(776, 359);
             this.dataGridViewListaDeAlunos.TabIndex = 0;
+            this.dataGridViewListaDeAlunos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListaDeAlunos_CellContentClick);
             this.dataGridViewListaDeAlunos.DoubleClick += new System.EventHandler(this.dataGridViewListaDeAlunos_DoubleClick);
             // 
             // buttonAtualizar
@@ -62,6 +63,7 @@
             this.Controls.Add(this.buttonAtualizar);
             this.Controls.Add(this.dataGridViewListaDeAlunos);
             this.Name = "FormListarEstudantes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Estudantes";
             this.Load += new System.EventHandler(this.FormListarEstudantes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListaDeAlunos)).EndInit();

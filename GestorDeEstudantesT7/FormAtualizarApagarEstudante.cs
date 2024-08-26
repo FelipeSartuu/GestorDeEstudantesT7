@@ -9,36 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GestorDeEstudantesT7
 {
     public partial class FormAtualizarApagarEstudante : Form
     {
-
-        Estudante estudante = new Estudante();
-        bool Verificar()
-        {
-            if ((textBoxNome.Text.Trim() == "") ||
-               (textBoxSobrenome.Text.Trim() == "") ||
-               (textBoxTelefone.Text.Trim() == "") ||
-               (textBoxEndereco.Text.Trim() == "") ||
-               (pictureBoxFoto.Image == null))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        
-
         public FormAtualizarApagarEstudante()
         {
             InitializeComponent();
         }
+
+        // Variável global do tipo Estudante, ou instância de um
+        // objeto do tipo Estudante, chamado "estudante".
+        Estudante estudante = new Estudante();
 
         private void buttonEnviarFoto_Click(object sender, EventArgs e)
         {
@@ -53,37 +36,11 @@ namespace GestorDeEstudantesT7
             }
         }
 
-        private void buttonEnviarFoto_Click_1(object sender, EventArgs e)
-        {
-            OpenFileDialog procurarFoto = new OpenFileDialog();
-
-            procurarFoto.Filter = "Selecione a foto (*.jpg;*.png;*.jpeg;*.gif)|*.jpg;*.png;*.jpeg;*.gif";
-
-            if (procurarFoto.ShowDialog() == DialogResult.OK)
-            {
-                pictureBoxFoto.Image = Image.FromFile(procurarFoto.FileName);
-            }
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormAtualizarApagarEstudante_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             try
             {
+                // Esta linha só existe em "buttonSalvar_Click(...)"
                 int id = Convert.ToInt32(textBoxID.Text);
 
                 string nome = textBoxNome.Text;
@@ -118,12 +75,12 @@ namespace GestorDeEstudantesT7
                     if (estudante.atualizarEstudantes(id, nome, sobrenome, nascimento, telefone,
                         genero, endereco, foto))
                     {
-                        MessageBox.Show("Alteração feita", "Sucesso!",
+                        MessageBox.Show("Dados salvos!", "Sucesso!",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Não foi possível realizar esta ação", "Erro!",
+                        MessageBox.Show("Não foi possível salvar!", "Erro!",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     }
@@ -138,16 +95,34 @@ namespace GestorDeEstudantesT7
             {
                 MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+        }
+
+        bool Verificar()
+        {
+            if ((textBoxNome.Text.Trim() == "") ||
+               (textBoxSobrenome.Text.Trim() == "") ||
+               (textBoxTelefone.Text.Trim() == "") ||
+               (textBoxEndereco.Text.Trim() == "") ||
+               (pictureBoxFoto.Image == null))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
             try
             {
+                // Referência a ID do aluno.
                 int idDoAluno = Convert.ToInt32(textBoxID.Text);
 
-                if (MessageBox.Show("Tem certeza que deesja apagar o aluno?",
+                // Mostrar uma caixa de diálogo perguntando se o usuário
+                // tem certeza de que quer apagar o aluno.
+                if (MessageBox.Show("Tem certeza que deseja apagar o aluno?",
                     "Apagar Estudante", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -157,11 +132,13 @@ namespace GestorDeEstudantesT7
                             "Apagar Estudante", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
 
+                        // Limpa as caixas de texto.
                         textBoxID.Text = "";
                         textBoxNome.Text = "";
-                        textBoxSobrenome.Text = "";
                         textBoxTelefone.Text = "";
                         textBoxEndereco.Text = "";
+                        dateTimePickerNascimento.Value = DateTime.Now;
+                        pictureBoxFoto.Image = null;
                     }
                     else
                     {
@@ -173,20 +150,17 @@ namespace GestorDeEstudantesT7
             }
             catch
             {
-
                 MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            
         }
 
+        // Variável global do tipo MeuBancoDeDados...
         MeuBancoDeDados meuBancoDeDados = new MeuBancoDeDados();
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            try
-            {
+           try
+           {
                 // Converte o ID da caixa de texto para número inteiro.
                 int idDoAluno = Convert.ToInt32(textBoxID.Text);
 
@@ -219,8 +193,7 @@ namespace GestorDeEstudantesT7
                     MemoryStream fotoStream = new MemoryStream(foto);
                     pictureBoxFoto.Image = Image.FromStream(fotoStream);
                 }
-            }
-            catch // Exibe uma mensagem de erro caso o usuário não digite a ID.
+            } catch // Exibe uma mensagem de erro caso o usuário não digite a ID.
             {
                 MessageBox.Show("Digite uma ID válida!", "ID Inválida", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }

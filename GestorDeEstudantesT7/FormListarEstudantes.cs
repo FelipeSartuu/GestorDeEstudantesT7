@@ -38,11 +38,14 @@ namespace GestorDeEstudantesT7
             colunaDeFotos.ImageLayout = DataGridViewImageCellLayout.Stretch;
             // Impede o usuário de incluir linhas.
             dataGridViewListaDeAlunos.AllowUserToAddRows = false;
+
         }
 
         private void dataGridViewListaDeAlunos_DoubleClick(object sender, EventArgs e)
         {
-            FormAtualizarApagarEstudante formAtualizarApagarEstudante = new FormAtualizarApagarEstudante();
+            // exibir as informaçõe do estudante ao clicar nele duas vezes.
+            FormAtualizarApagarEstudante formAtualizarApagarEstudante = 
+                new FormAtualizarApagarEstudante();
 
             formAtualizarApagarEstudante.textBoxID.Text =
                 dataGridViewListaDeAlunos.CurrentRow.Cells[0].Value.ToString();
@@ -50,34 +53,35 @@ namespace GestorDeEstudantesT7
                 dataGridViewListaDeAlunos.CurrentRow.Cells[1].Value.ToString();
             formAtualizarApagarEstudante.textBoxSobrenome.Text =
                 dataGridViewListaDeAlunos.CurrentRow.Cells[2].Value.ToString();
-
+            
             formAtualizarApagarEstudante.dateTimePickerNascimento.Value =
                 (DateTime) dataGridViewListaDeAlunos.CurrentRow.Cells[3].Value;
 
-            if (dataGridViewListaDeAlunos.CurrentRow.Cells[4].Value.ToString() == "Feminino")
+            if (dataGridViewListaDeAlunos.CurrentRow.Cells[4].
+                Value.ToString() == "Feminino")
             {
-                formAtualizarApagarEstudante.radioButtonFeminino.Checked = true;
+                formAtualizarApagarEstudante.
+                    radioButtonFeminino.Checked = true;
             }
             else
             {
-                formAtualizarApagarEstudante.radioButtonMasculino.Checked = true;
+                formAtualizarApagarEstudante.
+                    radioButtonMasculino.Checked = true;    
             }
 
             formAtualizarApagarEstudante.textBoxTelefone.Text =
                 dataGridViewListaDeAlunos.CurrentRow.Cells[5].Value.ToString();
-
             formAtualizarApagarEstudante.textBoxEndereco.Text =
                 dataGridViewListaDeAlunos.CurrentRow.Cells[6].Value.ToString();
 
+            // A foto.
             byte[] foto;
-            foto = (byte[])dataGridViewListaDeAlunos.CurrentRow.Cells[7].Value;
+            foto = (byte[]) dataGridViewListaDeAlunos.CurrentRow.Cells[7].Value;
             MemoryStream fotoDoAluno = new MemoryStream(foto);
-            formAtualizarApagarEstudante.pictureBoxFoto.Image = 
+            formAtualizarApagarEstudante.pictureBoxFoto.Image =
                 Image.FromStream(fotoDoAluno);
 
             formAtualizarApagarEstudante.Show();
-
-
         }
 
         private void buttonAtualizar_Click(object sender, EventArgs e)
@@ -100,6 +104,9 @@ namespace GestorDeEstudantesT7
             dataGridViewListaDeAlunos.AllowUserToAddRows = false;
         }
 
+        private void dataGridViewListaDeAlunos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }
