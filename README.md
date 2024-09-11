@@ -1,8 +1,6 @@
 # GestorDeEstudantesT7
-#### Concluído em: 02/09/2024
-
+#### **Concluído em: 02/09/2024**
 #### 🎥 **Demonstração em Vídeo:** [Assista aqui](<https://youtu.be/BF5N0Ol5o2I>)
-
 
 ### 📘 **Descrição do Projeto**
 **GestorDeEstudantesT7** é uma plataforma desenvolvida para gerenciar estudantes de forma simples e eficiente. O sistema permite que administradores façam login e tenham acesso a uma série de funcionalidades, como o registro, edição e visualização de informações dos alunos.
