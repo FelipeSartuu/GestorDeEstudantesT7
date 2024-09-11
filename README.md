@@ -49,6 +49,7 @@
 ### 👨‍🎓Imprimir
 **Para finalizar, é importante ressaltar que, caso o usuário queira, ele pode imprimir todas as informações de todos os alunos cadastrados no banco de dados do sistema escolar, basta acessar "Imprimir" e usar os filtros desejados e posteriormente, clicar em "Salvar arquivo de texto". Caso queira, você pode filtrar os alunos separando-os por características específicas, como, separar por gênero e/ou utilizar um intervalo de datas, colocando as datas desejadas. Após isso, basta clicar em "filtrar" que todos os alunos impressos no grid serão filtrados de acordo com o filtro aplicado. Feito isso, você notará que será criado um bloco de notas na sua área de trabalho, nesse arquivo.txt, o usuário poderá visualizar os dados dos alunos desejados, tais como (nome, sobrenome, nascimento, gênero, telefone e endereço)**
 
+<hr>
 
 ### 📝 **Observação**
 Este projeto foi desenvolvido como parte do curso *Harvard Computer Science 50 (CS50)*.
